@@ -207,7 +207,7 @@ while True:
 
 
     if k == "1":
-        a = GUEST()
+        a = save()
         f = open("hotel.dat", "ab")
         a.enter()
         a.tor()

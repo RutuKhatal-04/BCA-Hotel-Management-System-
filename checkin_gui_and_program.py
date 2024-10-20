@@ -32,12 +32,13 @@ def file_save():
     MOBILE_NO_PRO = details_list[2]
     ROOM_NO_PRO = details_list[3]
     PRICE_PRO = details_list[4]
+    DAYS_TO_STAY=details_list[5]
     f = open("hotel.dat", "ab")
-    a=save(NAME_PRO,ADDRESS_PRO,MOBILE_NO_PRO,ROOM_NO_PRO,PRICE_PRO)
+    a=save(NAME_PRO,ADDRESS_PRO,MOBILE_NO_PRO,ROOM_NO_PRO,PRICE_PRO,DAYS_TO_STAY)
     pickle.dump(a,f,protocol=2)
     f.close()
-    listq=[str(NAME_PRO),str(ADDRESS_PRO),str(MOBILE_NO_PRO),str(ROOM_NO_PRO),str(PRICE_PRO)]
-    myVars = {'A':NAME_PRO,"B":ADDRESS_PRO,"C":MOBILE_NO_PRO,"D":ROOM_NO_PRO,"E":PRICE_PRO }
+    listq=[str(NAME_PRO),str(ADDRESS_PRO),str(MOBILE_NO_PRO),str(ROOM_NO_PRO),str(PRICE_PRO),str(DAYS_TO_STAY)]
+    myVars = {'A':NAME_PRO,"B":ADDRESS_PRO,"C":MOBILE_NO_PRO,"D":ROOM_NO_PRO,"E":PRICE_PRO,"F":DAYS_TO_STAY }
 
     fo=open("recipt.txt","w+")
     for h in range(0,5):
@@ -67,12 +68,13 @@ def restart_program():
 
 
 class save:
-    def __init__(self,NAME_PRO,ADDRESS_PRO,MOBILE_NO_PRO,ROOM_NO_PRO,PRICE_PRO):
+    def __init__(self,NAME_PRO,ADDRESS_PRO,MOBILE_NO_PRO,ROOM_NO_PRO,PRICE_PRO,DAYS_TO_STAY):
         self.name=NAME_PRO
         self.address=ADDRESS_PRO
         self.mobile_no=MOBILE_NO_PRO
         self.room_no=ROOM_NO_PRO
         self.price=PRICE_PRO
+        self.no_of_days=DAYS_TO_STAY
 
 
 
@@ -213,6 +215,7 @@ class HOTEL_MANGMENT_checkin:
             details_list.append(self.mobile_no)
             details_list.append(self.room)
             details_list.append(self.price)
+            details_list.append(self.no_of_days)
 
 
 
